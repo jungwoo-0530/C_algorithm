@@ -29,6 +29,8 @@
             "command": "clang++",
             "args": [
                 "-g",
+                "-std=c++17", // C++ 17을 위한 추가 
+                "-stdlib=libc++",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
