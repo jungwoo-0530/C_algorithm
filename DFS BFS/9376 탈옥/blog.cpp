@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <cstring>
 #include <deque>
-#include<queue>
 using namespace std;
 
 struct prison
@@ -12,26 +11,23 @@ struct prison
 int h, w;
 char a[102][102];
 int dist[102][102][3];
-//deque<prison> dq;
-queue<pair<int,int>>dq;
+deque<prison> dq;
 int dx[] = {-1, 0, 1, 0}, dy[] = {0, -1, 0, 1};
 
 void bfs()
 {
-    //dq.push_back({0, 0});
-    dq.push(make_pair(0,0));
+    dq.push_back({0, 0});
     for (int k = 0; k < 3; k++)
     {
-        int sx = dq.front().first, sy = dq.front().second;
-        dq.pop();
-        //deque<prison> q;
-        queue<pair<int,int>> q;
-        q.push(make_pair(sx, sy));
+        int sx = dq.back().x, sy = dq.back().y;
+        dq.pop_back();
+        deque<prison> q;
+        q.push_back({sx, sy});
         dist[sx][sy][k] = 0;
         while (!q.empty())
         {
-            int x = q.front().first, y = q.front().second;
-            q.pop();
+            int x = q.front().x, y = q.front().y;
+            q.pop_front();
             for (int i = 0; i < 4; i++)
             {
                 int nx = x + dx[i], ny = y + dy[i];
@@ -41,14 +37,13 @@ void bfs()
                     continue;
                 if (a[nx][ny] == '.')
                 {
-                    
                     dist[nx][ny][k] = dist[x][y][k];
-                    q.push(make_pair(nx, ny));
+                    q.push_front({nx, ny});
                 }
                 else if (a[nx][ny] == '#')
                 {
                     dist[nx][ny][k] = dist[x][y][k] + 1;
-                    q.push(make_pair(nx, ny));
+                    q.push_back({nx, ny});
                 }
             }
         }
@@ -74,7 +69,7 @@ int main()
                 if (a[i][j] == '$')
                 {
                     a[i][j] = '.';
-                    dq.push(make_pair(i, j));
+                    dq.push_back({i, j});
                 }
             }
         }

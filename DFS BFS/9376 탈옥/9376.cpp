@@ -1,8 +1,9 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-#include<queue>
+#include<deque>
 #include<string.h>
+#include<queue>
 
 using namespace std;
 
@@ -26,18 +27,18 @@ void bfs()
     for(int i = 0; i<3; i++)
     {
 
-        queue<pair<int, int>>q;
+        deque<pair<int, int>>q;
 
         int start_x = start.front().first;//x좌표
         int start_y = start.front().second;//y좌표
         start.pop();
-        q.push(make_pair(start_x, start_y));
+        q.push_back(make_pair(start_x, start_y));
         door_num[start_x][start_y][i] = 0;
         while(!q.empty())
         {
             int x = q.front().first;
             int y = q.front().second;
-            q.pop();
+            q.pop_front();
             for(int j = 0; j < 4; j++)
             {   
                 int nx = x+dx[j];
@@ -49,12 +50,12 @@ void bfs()
                 if (map[nx][ny] == '.')         //빈공간이면 새로운좌표 = 전좌표
                 {
                     door_num[nx][ny][i] = door_num[x][y][i];
-                    q.push(make_pair(nx, ny));
+                    q.push_front(make_pair(nx, ny));
                 }
                 else if(map[nx][ny] == '#')//문이면 새로운좌표 전좌표에 +1.
                 {
                     door_num[nx][ny][i] = door_num[x][y][i] + 1;
-                    q.push(make_pair(nx,ny));
+                    q.push_back(make_pair(nx,ny));
                 }
 
             }
@@ -71,9 +72,9 @@ void solve()
     {
     cin >> h >> w;
     memset(door_num, -1 , sizeof(door_num));
-    for(int i = 0; i <= h+1; i++)
+    for(int i = 0; i < h+2; i++)
     {
-        for(int j = 0; j <= w+1; j++)
+        for(int j = 0; j < w+2; j++)
         {
             if(i == 0 || j == 0 || i == h+1 || j == w+1)
             {
@@ -84,7 +85,7 @@ void solve()
                 cin >> a;
                 map[i][j] = a;
             }
-            
+
             if(map[i][j] == '$')//범죄자 위치, 즉, 출발점.
             {
                 map[i][j] = '.';
@@ -111,8 +112,7 @@ void solve()
                 ans = temp;
         }
     }
-    cout<< endl;
-    cout << ans;
+    cout << ans <<endl;
 
     //출발점 start 큐에 넣기
     
