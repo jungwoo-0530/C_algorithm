@@ -29,7 +29,7 @@ void bfs(int position)
         {
             
           
-            if(i == 0 && a+1 < MAX-1 && visit[a+1] == 0)
+            if(i == 0 && a+1 <= MAX && visit[a+1] == 0)
             {
                 q.push(make_pair(a+1, time_temp+1));
                 visit[a+1] = 1;
@@ -40,7 +40,7 @@ void bfs(int position)
                 q.push(make_pair(a-1, time_temp+1));
                 visit[a-1] = 1;
             }
-            if (i == 2 && a*2 < MAX-1 && visit[a*2] == 0)
+            if (i == 2 && a*2 <= MAX && visit[a*2] == 0)
             {
                 q.push(make_pair(a*2, time_temp+1));
                 visit[a*2] = 1;
