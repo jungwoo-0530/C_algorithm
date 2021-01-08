@@ -55,6 +55,7 @@ void solve()
         cin >> end_x >> end_y;
 
         bfs();
+        cout << "\n";
     }
 
 }
