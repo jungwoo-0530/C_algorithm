@@ -11,24 +11,22 @@ int n, m;
 int a, b;
 int Casenum;
 int tree_cnt;
-int edge_cnt;
-int vertex_cnt;
+int edge_cnt = 0;
+int vertex_cnt = 0;
 //트리 조건 : 트리는 정점이 n개, 간선이 n-1개.
 //          임의의 두 정점에 대해서 경로가 유일하다.
-//무방향 그래프는 간선/2, 방향 
+//무방향 그래프는 간선/2
 void dfs(int u)
 {   
     visit[u] = true;
-    edge_cnt++;
-
+    vertex_cnt++;
+    edge_cnt += adj[u].size();
     for(int i = 0; i < adj[u].size(); i++)
     {
         int v = adj[u][i];
 
         if(!visit[v])
         {
-            edge_cnt++;
-            vertex_cnt++;
             dfs(v);
         }
     }
@@ -56,7 +54,7 @@ void solve()
             if(!visit[i])
             {
                 dfs(i);
-                if(edge_cnt -1 == vertex_cnt)
+                if(edge_cnt/2 == vertex_cnt-1)
                     tree_cnt++;
             }
             edge_cnt = 0;
