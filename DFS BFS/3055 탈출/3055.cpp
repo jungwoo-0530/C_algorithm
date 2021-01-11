@@ -50,13 +50,11 @@ int bfs(int sx, int sy)
                 }
         }
         int here_size = here.size();
-        //cout << endl << "here size" << here_size << endl;
 
         for(int m=0; m<here_size;m++)
         {
             int x = here.front().first, y = here.front().second;
             here.pop();
-            //cout << endl << "pop" << x << y << endl;
             for(int i=0; i<4; i++)//고슴도치이동.
             {
                 int nx = x + dx[i], ny = y + dy[i];
@@ -67,29 +65,10 @@ int bfs(int sx, int sy)
                 {
                     ans[nx][ny] = ans[x][y] + 1;
                     here.push(make_pair(nx,ny));
-                    //cout << endl << nx << " " << ny << endl;
                     if(adj[nx][ny] == 'D')return ans[nx][ny];
                 }
             }
         }
-        // cout<< "------------------------" << endl;
-        // for (int i = 0; i < 3; i++)
-        // {
-        //     for (int j = 0; j < 6; j++)
-        //     {
-        //         cout << adj[i][j];
-        //     }
-        //     cout << endl;
-        // }
-        // cout << endl;
-        // for(int i=0; i<3; i++)
-        // {
-        //     for(int j=0; j<6; j++)
-        //     {
-        //         cout << ans[i][j];
-        //     }
-        //     cout << endl;
-        // }
     }
     return 0;
 }
@@ -115,24 +94,6 @@ void solve()
     if(!ans_)cout << "KAKTUS";
     else cout << ans_;
 
-    // cout << endl;
-    // for(int i=0; i<3; i++)
-    // {
-    //     for(int j=0; j<6; j++)
-    //     {
-    //         cout << ans[i][j];
-    //     }
-    //     cout << endl;
-    // }
-
-    // for (int i = 0; i < 3; i++)
-    // {
-    //     for (int j = 0; j < 6; j++)
-    //     {
-    //         cout << adj[i][j];
-    //     }
-    //     cout << endl;
-    // }
 }
 
 
