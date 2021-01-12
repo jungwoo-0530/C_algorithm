@@ -43,7 +43,7 @@ void Input(int a)
         rootnode = Newnode;
         cnt++;
         return;
-    }
+    }dd
 
     Node *cur = rootnode;
 
