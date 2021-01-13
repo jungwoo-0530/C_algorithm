@@ -19,21 +19,19 @@ Node* rootnode;
 
 void post(Node* start)
 {
-    cout << "post start" <<endl;
     if(start->left != NULL)
         post(start->left);
-    else if(start->right != NULL)
+    if(start->right != NULL)
         post(start->right);
-    cout << start->value;
     
+    cout << start->value <<endl;
 }
 
 
 void Input(int a)
 {
 
-    Node *Newnode;
-    Newnode = new Node;
+    Node *Newnode = new Node();
     Newnode->value = a;
     Newnode->right = NULL;
     Newnode->left = NULL;
@@ -43,39 +41,43 @@ void Input(int a)
         rootnode = Newnode;
         cnt++;
         return;
-    }dd
-
-    Node *cur = rootnode;
-
-    while(1)
+    }
+    else
     {
-        //cout << "b";
-        if(cur->value < a)
-        {
-            if(cur->left == NULL){
-                cur->left = Newnode;
-                break;
-            }
-            cur = cur->left;   
-        }
+        Node *cur = rootnode;
 
-        else if(cur->value > a)
+        while(1)
         {
-            if(cur->right == NULL)
+            if(cur->value > a)
             {
-                cur->right = Newnode;
-                break;
+                if(cur->left == NULL){
+                    cur->left = Newnode;
+                    break;
+                }
+                cur = cur->left;   
             }
-            cur = cur->right;
+
+            else if(cur->value < a)
+            {
+                if(cur->right == NULL)
+                {
+                    cur->right = Newnode;
+                    break;
+                }
+                cur = cur->right;
+            }
         }
     }
-
     cnt++;
     return;
 }
 void solve()
 {
-    while(cin >> t)v.push_back(t);
+    while(cin>>t)
+    {
+        if(t == EOF)break;
+        v.push_back(t);
+    }
     for(int i=0; i<v.size(); i++)
         Input(v[i]);
     post(rootnode);
