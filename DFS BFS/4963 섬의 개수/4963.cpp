@@ -46,9 +46,9 @@ void solve()
         {
             for(int j=1; j<=w; j++)
             {
-                int a;
-                cin >> a;
-                map[i][j] = a;
+                int b;
+                cin >> b;
+                map[i][j] = b;
             
             }
         }
