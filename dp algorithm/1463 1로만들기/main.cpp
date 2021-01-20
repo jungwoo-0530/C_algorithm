@@ -2,40 +2,48 @@
 
 using namespace std;
 
-int max(int a, int b)
+int N;
+int i, j;
+int cnt;
+int max_answer = 0;
+int dp[1000001];
+
+int min(int a, int b)
 {
-    if(a > b)
+    if(a < b)
         return a;
 
+    else if(a == b)
+        return a;
     else
         return b;
 }
 
+void solve()
+{
+    dp[0] = 0;
+    dp[1] = 0;
+
+    cin >> N;
+
+    for(int i=2; i<=N; i++)
+    {
+        dp[i] = dp[i-1] + 1;
+        if(i%2 == 0)dp[i] = min(dp[i], dp[i/2]+1);
+        if(i%3 == 0)dp[i] = min(dp[i], dp[i/3]+1);
+    }
+
+    cout << dp[N];
+}
+
+
 int main()
 {
-    int N;
-    int i, j;
-    int max_answer = 0;
-    int dp[500][500];
+    ios::sync_with_stdio(false);
+    cin.tie(NULL), cout.tie(NULL);
 
-    scanf("%d",&N);
-
-    for(i = 0; i<N; i++)
-        for(int j = 0; j<=i; j++)
-            scanf("%d",&dp[i][j]);
-    max_answer = dp[0][0];
-
-    for(i = 1; i<N; i++)
-        for(j = 0; j <= i; j++)
-        {
-            if(j == 0) dp[i][j] = dp[i-1][0] + dp[i][j];
-            else if(i==j) dp[i][j] = dp[i-1][j-1] + dp[i][j];
-            else dp[i][j] = dp[i][j] + max(dp[i-1][j-1], dp[i-1][j]);
-
-            max_answer = max(dp[i][j], max_answer);
-        }
-
-    printf("%d\n",max_answer);
+    solve();
+    
 
 
     return 0;
