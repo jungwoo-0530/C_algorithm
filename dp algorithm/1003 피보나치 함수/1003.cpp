@@ -1,39 +1,32 @@
 #include<iostream>
+#include<string.h>
 
 using namespace std;
 
-int one, zero;
 int Testcase;
-
-int fibonacci(int n)
-{
-    if (n == 0)
-    {
-        zero++;
-        return 0;
-    }
-    else if (n == 1)
-    {
-        one++;
-        return 1;
-    }
-    else
-    {
-        return fibonacci(n-1) + fibonacci(n-2);
-    }
-}
+int dp1[40];//1의 갯수
+int dp0[40];//0의 갯수
 
 void solve()
 {
+    dp1[0] = 0;
+    dp1[1] = 1;
+    dp0[0] = 1;
+    dp0[1] = 1;
+    for(int i=2; i<=40; i++)
+    {
+        dp1[i] = dp1[i-1] + dp1[i-2];
+        dp0[i] = dp0[i-1] + dp0[i-2];
+    }
+
     cin >> Testcase;
 
     for(int i=0; i<Testcase; i++)
     {
-        int input = 0;
-        one = 0, zero = 0;
-        cin >> input; 
-        fibonacci(input);
-        cout << zero << " " << one << endl;
+        int input;
+        cin >> input;
+
+        cout << dp0[input] << " " << dp1[input] << endl;
     }
 
 }
