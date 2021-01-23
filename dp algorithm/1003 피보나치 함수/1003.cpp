@@ -4,15 +4,15 @@
 using namespace std;
 
 int Testcase;
-int dp1[40];//1의 갯수
-int dp0[40];//0의 갯수
+int dp1[41];//1의 갯수
+int dp0[41];//0의 갯수
 
 void solve()
 {
     dp1[0] = 0;
     dp1[1] = 1;
     dp0[0] = 1;
-    dp0[1] = 1;
+    dp0[1] = 0;
     for(int i=2; i<=40; i++)
     {
         dp1[i] = dp1[i-1] + dp1[i-2];
@@ -20,12 +20,11 @@ void solve()
     }
 
     cin >> Testcase;
-
+    
     for(int i=0; i<Testcase; i++)
     {
         int input;
         cin >> input;
-
         cout << dp0[input] << " " << dp1[input] << endl;
     }
 
