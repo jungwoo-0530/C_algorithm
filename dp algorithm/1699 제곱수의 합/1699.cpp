@@ -10,7 +10,7 @@ int dp[100001];
 //2. 8인 수를 보면 
 //  1+1+1+1+1+1+1+1은 1의 경우의 수에서 7개 항을 더한 것이므로 8
 //  4+4은 dp[4] + 1
-// dp[8] = min(dp[7]+1, dp[4])
+// dp[8] = min(dp[7]+1, dp[4]+1)
 
 int min1(int a, int b){if(a > b)return b; else return a;}
 
@@ -27,9 +27,9 @@ void solve()
     {
         dp[i] = i;
         for(int j=1; j<=sqrt(i); j++)
-            dp[i] = min1(dp[i], dp[i-j*j]);
+            dp[i] = min1(dp[i], dp[i-j*j]+1);
     }
-    
+
 
     cout << dp[N];
 

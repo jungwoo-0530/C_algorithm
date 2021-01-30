@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -18,7 +19,49 @@ void solve()
         int a;
         cin >> a;
         if(a==0)break;
-        
+        int cnt = 0 ;
+        int b = sqrt(a);
+
+        for(int i=1; i<=b; i++)
+        {
+            if(i*i == a)
+            {
+                cnt++;
+                continue;
+            }
+           
+           for(int j=i; j<=b; j++)
+           {
+               if(i*i + j*j == a)
+               {
+                   cnt++;
+                   break;
+               }
+               
+
+                for(int k=j; j<=b; k++)
+                {
+                    if(i*i + j*j + k*k == a)
+                    {
+                        cnt++;
+                        break;
+                    }
+
+                    for(int h=k; h<=b; h++)
+                    {
+                        if (i * i + j * j + k * k + h*h == a)
+                        {
+                            cnt++;
+                            break;
+                        }
+                    }
+                }
+
+           }
+            
+        }
+
+        cout << cnt << endl;
     }
 
 }
