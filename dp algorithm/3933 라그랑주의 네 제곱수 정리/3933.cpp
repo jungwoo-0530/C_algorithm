@@ -1,77 +1,69 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 using namespace std;
 
-
-int dp[32769];
-//2^15 = 32768
-//라그랑주의 네 제곱 : 모든 수는 4개의 제곱수로 표현
-// 3 = 1^2+1^2+1^2+0^2
-//
-//
-
-void solve()
+int main(void)
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int input = 255;
+    int num;
+    int n = 0;
 
-    while(1)
+    while (input)
     {
-        int a;
-        cin >> a;
-        if(a==0)break;
-        int cnt = 0 ;
-        int b = sqrt(a);
+        n = 0;
+        cin >> num;
+        if (num == 0)
+            break;
 
-        for(int i=1; i<=b; i++)
+        int len = (int)sqrt(num);
+
+        for (int i = 1; i <= len; i++)
         {
-            if(i*i == a)
+            if (i * i == num)
             {
-                cnt++;
+                n++;
                 continue;
             }
-           
-           for(int j=i; j<=b; j++)
-           {
-               if(i*i + j*j == a)
-               {
-                   cnt++;
-                   break;
-               }
-               
-
-                for(int k=j; j<=b; k++)
+            for (int j = i; j <= len; j++)
+            {
+                if (i * i + j * j == num)
                 {
-                    if(i*i + j*j + k*k == a)
+                    n++;
+                    break;
+                }
+                else if (i * i + j * j > num)
+                    break;
+
+                for (int k = j; k <= len; k++)
+                {
+                    if (i * i + j * j + k * k == num)
                     {
-                        cnt++;
+                        n++;
                         break;
                     }
+                    else if (i * i + j * j + k * k > num)
+                        break;
 
-                    for(int h=k; h<=b; h++)
+                    for (int l = k; l <= len; l++)
                     {
-                        if (i * i + j * j + k * k + h*h == a)
+                        if (i * i + j * j + k * k + l * l == num)
                         {
-                            cnt++;
+                            n++;
                             break;
                         }
+                        else if (i * i + j * j + k * k + l * l > num)
+                            break;
                     }
                 }
-
-           }
-            
+            }
         }
 
-        cout << cnt << endl;
+        cout << n << '\n';
+        input--;
     }
-
-}
-
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(NULL), cout.tie(NULL);
-
-    solve();
 
     return 0;
 }
