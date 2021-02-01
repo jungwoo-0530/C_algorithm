@@ -11,7 +11,8 @@ int bigger(int a, int b){if(a>b)return a; else return b;}
 
 void solve()
 {
-    int max = 0;
+    int max = 0
+    
 
     cin >> N;
 
@@ -23,11 +24,7 @@ void solve()
 
     for(int i=1; i<N; i++)
     {
-        if(max < a[i])
-        {
-            cnt++;
-            max = a[i];
-        }
+        for(int j=i; )
         
     }
 
