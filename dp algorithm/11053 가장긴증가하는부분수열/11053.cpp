@@ -14,7 +14,7 @@ void solve()
     int max = 0
     
 
-    cin >> N;
+    cin >> N
 
     for(int i=0; i<N; i++)
         cin >> a[i];
