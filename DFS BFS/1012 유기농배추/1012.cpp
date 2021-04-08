@@ -24,7 +24,6 @@ void dfs(int x_, int y_)
         if(move_x < 0 || move_y < 0 || move_x >= x_size || move_y >= y_size)continue;
             if(visit[move_x][move_y] == 0 && map[move_x][move_y] == 1 )
             {
-                visit[move_x][move_y] = 1;
                 dfs(move_x, move_y);
             }
         
