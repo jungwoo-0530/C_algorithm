@@ -10,15 +10,13 @@
 
    - [링크](https://www.acmicpc.net/problem/13460)
 
-   - DFS, BFS
+   - DFS
    - brute force
    - 완전탐색
-
-2. 
-
-
-
-
+   - DFS시작시 조건
+   - DFS함수 안에서 이동하는 함수실행. 이동하는 함수에서는 오직 이동만.
+   - 이동 완료 후 두 공이 겹치는 상황에서 재조정
+   - backtracking
 
 2. 
 
