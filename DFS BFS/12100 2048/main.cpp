@@ -33,7 +33,7 @@ void move(int dir, int (*map)[max]){
                         map[j - 1-temp][i] = map[j-temp][i];
                         map[j - temp][i] = 0;
                         temp++;
-                        if(j-1-temp < 0)
+                        if(j-1-temp <= 0)
                             break;
                         continue;
                     }
