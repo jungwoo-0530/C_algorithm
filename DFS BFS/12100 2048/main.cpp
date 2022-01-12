@@ -17,7 +17,7 @@ void move(int dir, int (*map)[max]){
 
     switch (dir)
     {
-    case 0:
+    case 0://위
         for (int i = 0; i < N; i++)
         {
             for (int j = 1; j < N; j++)
@@ -33,6 +33,8 @@ void move(int dir, int (*map)[max]){
                         map[j - 1-temp][i] = map[j-temp][i];
                         map[j - temp][i] = 0;
                         temp++;
+                        if(j-1-temp < 0)
+                            break;
                         continue;
                     }
                     
@@ -77,6 +79,8 @@ void move(int dir, int (*map)[max]){
                         map[j][i - 1 - temp] = map[j][i - temp];
                         map[j][i - temp] = 0;
                         temp++;
+                        if(i-1-temp < 0)//인덱스가 0보다 작아지면 break.
+                            break;
                         continue;
                     }
                     else//다음칸이 0이 아님.
@@ -108,7 +112,7 @@ void move(int dir, int (*map)[max]){
     case 2://아 4 -> 3 2 1 0 
         for (int i = 0; i < N; i++)
         {
-            for (int j = N-2; j > 0; j--)
+            for (int j = N-2; j >= 0; j--)
             {
                 if(map[j][i] == 0)
                     continue;
@@ -120,6 +124,8 @@ void move(int dir, int (*map)[max]){
                         map[j + 1 + temp][i] = map[j + temp][i];
                         map[j + temp][i] = 0;
                         temp++;
+                        if(j+1+temp > N-1)
+                            break;
                         continue;
                     }
                     else //다음칸이 0이 아님.
@@ -150,7 +156,7 @@ void move(int dir, int (*map)[max]){
     case 3://오
         for (int j = 0; j < N; j++)
         {
-            for (int i = N-2; i > 0; i--)
+            for (int i = N-2; i >= 0; i--)
             {
                 if (map[j][i] == 0)
                     continue;
@@ -162,6 +168,8 @@ void move(int dir, int (*map)[max]){
                         map[j][i + 1 + temp] = map[j][i + temp];
                         map[j][i + temp] = 0;
                         temp++;
+                        if(i+1+temp>N-1)
+                            break;
                         continue;
                     }
                     else //다음칸이 0이 아님.
@@ -205,7 +213,7 @@ void move(int dir, int (*map)[max]){
 void dfs(int cnt, int (*m)[max]){
 
     
-    if(cnt==4){
+    if(cnt==5){
         return;
     }
     
@@ -217,13 +225,12 @@ void dfs(int cnt, int (*m)[max]){
         dfs(cnt+1, temp);
     }
 
-
+    return;
 }
 
 void copyArr(int(*a)[20], int(*b)[20]){
     for(int i = 0; i<N; i++){
         for(int j = 0; j<N; j++){
-            int temp;
             a[i][j] = b[i][j];
         }
     }
@@ -260,5 +267,7 @@ int main(){
     // }
 
     cout << ans;
+
+    return 0;
 
 }
