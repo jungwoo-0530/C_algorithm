@@ -60,6 +60,8 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+
+    cout << "안녕하세요";
     
     cin >> T;
     for(int i = 0; i<T; i++)

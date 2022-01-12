@@ -14,6 +14,7 @@ int queue[MAX_VERTEX];
 
 void DFS(int v)//int v는 시작 노드번호
 {
+    
     visit[v] = 1;
     int i = 1;
     for(int i = 1; i<=vertex; i++ )

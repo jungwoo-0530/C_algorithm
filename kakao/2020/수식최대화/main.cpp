@@ -49,7 +49,7 @@ void dfs(char operator_, int depth)
 
     for(int i = 0; i < token.size(); i++)
     {
-
+        if(token[i] == )
     }
 
 }
