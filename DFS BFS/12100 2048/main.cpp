@@ -205,11 +205,6 @@ void move(int dir, int (*map)[max]){
 
 
 
-// 맵을 넘게 움직이면 그자리에 스탑.
-// 하나라도 숫자가 0외에 다르면 스탑.
-
-// 숫자가 같으면 합쳐지고 그 움직인 자리에 0.
-// 숫자가 다르면 그자리에 멈추고 다음것.
 void dfs(int cnt, int (*m)[max]){
 
     
@@ -256,15 +251,6 @@ int main(){
     }
     dfs(0, initMap);
 
-    // for (int i = 0; i < N; i++)
-    // {
-
-    //     for (int j = 0; j < N; j++)
-    //     {
-    //         cout << map[i][j];
-    //     }
-    //     cout << endl;
-    // }
 
     cout << ans;
 

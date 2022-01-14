@@ -7,18 +7,12 @@ using namespace std;
 #define orderMax 1000
 int N, M;//N 세로, M 가로
 int x, y, k;
-int map[max][max];
+int map[max][max]; // 4*20*20 = 800byte.
 int order[orderMax];
 int dice[6];
-int diceDownIndex;
-int diceUpIndex;
-//현재 윗면, 동서남북(아랫면)
-//1 : 3 4 2 5
-//2 : 3 4 6 1
-//3 : 1 6 5 2
-//4 : 6 1 5 2
-//5 : 3 4 1 6
-//6 : 3 4 5 2
+
+//[4] = 4방향 [6] = 인덱스 면에 따라 어떤 면이 오는지.
+// [0][0] = 1번 방향으로 이동, 1번 면에 어떤 면이 오는지.
 int dir[4][6] = {
     {4, 2, 1, 6, 5, 3},
     {3, 2, 6, 1, 5, 4},
@@ -32,7 +26,10 @@ void copy(int a[6], int b[6]){
     }
 }
 
-void changeDice(int a){
+// a 는 이동 방향. 이동 방향대로 움직일 때,
+//어떤 면이 어디로 가는지 dice에 재입력.
+void changeDice(int a)
+{
 
     int temp[6];
     copy(temp, dice);
@@ -45,9 +42,6 @@ void changeDice(int a){
 
 
 void solve(){
-    diceDownIndex = 6;
-    diceUpIndex = 1;//answer
-    //ans = dice[diceUpIndex -1];
     for(int i=0; i<k; i++){
 
         if(order[i] == 1)//동

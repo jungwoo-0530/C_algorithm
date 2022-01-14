@@ -17,10 +17,7 @@
             "presentation": {
                 "clear": true
             },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "problemMatcher": []
         },
         {
@@ -29,7 +26,7 @@
             "command": "clang++",
             "args": [
                 "-g",
-                "-std=c++17", // C++ 17을 위한 추가 
+                "-std=c++17",
                 "-stdlib=libc++",
                 "${file}",
                 "-o",
@@ -55,6 +52,29 @@
             "presentation": {
                 "clear": true
             }
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang++ 활성 파일 빌드",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "컴파일러: /usr/bin/clang++"
         }
     ]
 }
