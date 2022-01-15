@@ -106,16 +106,6 @@ while(1)
 }
 
 cout << day;
-    // for (int i = 0; i < N; i++)
-    // {
-    //     for (int j = 0; j < N; j++)
-    //     {
-    //         cout << map[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
-
-            // dfs(0,0,0,);
 
             return 0;
 }
