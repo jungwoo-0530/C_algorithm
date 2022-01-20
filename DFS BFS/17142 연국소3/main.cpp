@@ -6,15 +6,11 @@
 using namespace std;
 
 int N, M;
-int map[50][50] = {0, };
 vector<pair<int,int> > virusStart;
-
 int dx[4] = {0,1,0,-1};
 int dy[4] = {1,0,-1,0};
 bool visit[50][50] = {false, 0};
-
 int MAP[10][50][50] = {0 ,};
-int MAX;
 
 void bfs(int x, int y, int (*a)[50]){
     queue<pair<int, int> > q;
@@ -52,26 +48,21 @@ void bfs(int x, int y, int (*a)[50]){
 }
 
 //bfs로 해야함.
-void dfs(int depth, int x, int y, int (*a)[50]){
+void dfs(int depth){
     
-    visit[y][x] = true;
-    a[y][x] = depth;    
+    if(depth == virusStart.size())
+    {
 
+    }
 
-    for(int i = 0; i<4; i++){
+    for(int k = 0; k < virusStart.size(); k++){
+    
+    }
 
-        int nx = x + dx[i];
-        int ny = y + dy[i];
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j< N; j++){
 
-        if(nx < 0 || ny < 0 || nx > N-1 || ny > N-1)
-            continue;
-        if(a[ny][nx] == -1)
-            continue;
-
-        if(visit[ny][nx] == true)
-            continue;
-        visit[ny][nx] = true;
-        dfs(depth + 1, nx, ny, a);
+        }
     }
 
 }
@@ -80,22 +71,6 @@ void dfs(int depth, int x, int y, int (*a)[50]){
 int main(){
 
     cin >> N >> M;
-
-    // for(int i = 0; i < N; i++){
-    //     for(int j = 0; j< N; j++){
-    //         int a;
-    //         cin >> a;
-    //         if(a == 1)
-    //         {
-    //             map[i][j] = -1;
-    //             continue;
-    //         }
-    //         map[i][j] = a;
-    //         if(a == 2){
-    //             virusStart.push_back(make_pair(i,j));
-    //         }
-    //     }
-    // }
 
     for (int i = 0; i < N; i++)
     {
@@ -133,14 +108,14 @@ int main(){
         memset(visit, false, sizeof(visit));
     }
 
-    for(int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            cout << MAP[1][i][j] << " ";
-        }
-        cout << endl;
-    }
+    // for(int i = 0; i < N; i++)
+    // {
+    //     for (int j = 0; j < N; j++)
+    //     {
+    //         cout << MAP[1][i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
 
     return 0;
 }
