@@ -36,15 +36,15 @@ string solution(string number, int k)
     int maxIdx = 0;
     int start = 0;
     char max = ' ';
+    //number에서 빼야되는 숫자가 k -> number.size()-k갯수
     for (int i = 0; i < number.size() - k; i++)
     {
 
         max = number[start];
         maxIdx = start;
-
+        //숫자 중 큰 수는 앞에 숫자가 제일 큰 수가 가장 큰수.
         for (int j = start; j <= i + k; j++)
         {
-
             if (number[j] > max)
             {
                 maxIdx = j;

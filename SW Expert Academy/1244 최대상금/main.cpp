@@ -2,7 +2,7 @@
 // //dfs로 모든 노드를 방문(완전탐색)
 // //visit 배열을 사용해야함. 같은 depth에서 같은 숫자가 있을 수 있음.
 // //swap해야하므로 한 칸당 한 숫자를 삽입.
-// //https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV15Khn6AN0CFAYD&categoryId=AV15Khn6AN0CFAYD&categoryType=CODE&problemTitle=&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1#
+    // //https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV15Khn6AN0CFAYD&categoryId=AV15Khn6AN0CFAYD&categoryType=CODE&problemTitle=&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1#
 // #include <iostream>
 // #include <vector>
 // #include <algorithm>

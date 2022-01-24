@@ -2,7 +2,11 @@
 #include <vector>
 #include <string.h>
 using namespace std;
-
+//dfs로 연합 가능한 곳을 찾는다.(서로 연결되어있는 땅만 연합가능하므로 dfs로 가능. 방문한 곳은 visit true 설정)
+//dfs시 연합 가능한지 아닌지 확인 후, 이동. 그렇다면 매번 dfs마다 숫자를 합쳐 주고 해당 x,y좌표 저장.
+//dfs 한 사이클이 끝나면 저장해준 x,y 좌표를 이용하여 인구를 재분배.
+//인구 이동이 일어 났다면 true로 day ++ 로 다음날.
+//인구 이동이 없다면 false로 break
 int map[50][50] = {-1, };
 int N, L, R;// 인구 차이가 L 이상 R 이하일때 일어남.
 bool visit[50][50] = {false, };
