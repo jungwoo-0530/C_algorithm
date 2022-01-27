@@ -30,9 +30,7 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k)
         {
             cnt++;
             if (cnt == 1)
-            {
                 name = stringBuffer;
-            }
             else
             {
                 target = stringBuffer;
@@ -44,9 +42,7 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k)
         auto flag = a[name].insert(target);
         //신고자와 신고당한 사람 중복일시, 카운트가 올라가지 않으므로.
         if (flag.second == false)
-        {
             countMap[target]--;
-        }
     }
 
     // answer에 id_list순으로
@@ -60,12 +56,9 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k)
         for (auto iter : a[name])
         {
             string target = iter;
-
             // countMap[target] 이름별 신고당한 횟수.
             if (countMap[target] >= k)
-            {
                 answer[i] = answer[i] + 1;
-            }
         }
     }
 
