@@ -74,6 +74,7 @@ string solution(string p)
     if(check(p))
         return p;
     answer = solve(p);
+
     return answer;
 }
 

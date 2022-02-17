@@ -50,5 +50,7 @@ string solution(vector<int> numbers)
     if (answer.size() == count(answer.begin(), answer.end(), '0'))
         return "0";
 
+    
+
     return answer;
 }

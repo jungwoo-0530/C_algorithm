@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include<map>
 
 // //1234 -> 123 124 234 
 // // 1234 -> 12 13 14 23 24 34
@@ -58,16 +58,19 @@ string solution(string number, int k)
     return answer;
 }
 
-// int main(){
-//     string num;
-//     // int k;
+int main(){
+     string num;
+     // int k;
 
-//     cin >> num >> k;
+     cin >> num >> k;
 
-//     dfs(0, "", num, 0);
+     dfs(0, "", num, 0);
 
-//     cout << ans;
+     cout << ans;
+
+     map<string, string>a;
+     
 
 
-//     return 0;
-// }
+     return 0;
+ }
