@@ -11,11 +11,16 @@ using namespace std;
 //dp[i] = dp[i-k]+ c[k]
 //dp[0] = 0;
 
+
+
+
 int dp[10001];
 int c[20];
 int N;
 int M;
 int T;
+
+
 
 int bottom_up(){
 
